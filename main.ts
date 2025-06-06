@@ -28,7 +28,7 @@ function player2 () {
             . . . f d b b d d c d d f . . . 
             . . . f f f f f f f f f . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
+        controller.moveSprite(mySprite, spritespeedx, spritespeedy)
         scene.cameraFollowSprite(mySprite)
         tiles.setTileAt(value, sprites.dungeon.stairWest)
         tiles.placeOnTile(mySprite, value)
@@ -37,6 +37,11 @@ function player2 () {
 let mySprite: Sprite = null
 let mySprite2: Sprite = null
 let itemlist: Image[] = []
+let spritespeedy = 0
+let spritespeedx = 0
+let spritedamage = 1
+spritespeedx = 100
+spritespeedy = 100
 tiles.setCurrentTilemap(tilemap`waitingroom`)
 itemlist = [
 img`
