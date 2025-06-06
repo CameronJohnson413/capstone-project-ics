@@ -22,7 +22,7 @@ namespace myTiles {
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
             case "waitingroom":
-            case "level1":return tiles.createTilemap(hex`10000800060d070d070d070d070d070d070d0705080a0a0a0a0a0a0a0a0a0a0a0a0a0a09100a010a010a010a0a0a0a0a0a0b0a0f130a0a0a0a0a0a0a0a0a0a0a0a0a0a0c0c0a0a0a0a0a0a0a0a0a0a0a0a0a0a0c110a0a0a0a0a0a0a0a0a0a0a0a0a0a12080a0a0a0a0a0a0a0a0a0a0a0a0a0a0903020e020e020e020e020e020e020e04`, img`
+            case "level1":return tiles.createTilemap(hex`10000800050c060c060c060c060c060c060c0604070909090909090909090909090909080f0909090909090909090909090a090e1209090909090909090909090909090b0b09090909090909090909090909090b100909090909090909090909090909110709090909090909090909090909090802010d010d010d010d010d010d010d03`, img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . 2 
@@ -31,7 +31,7 @@ namespace myTiles {
 2 . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency16,myTiles.tile2,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterEast0,sprites.dungeon.floorLight0,sprites.dungeon.collectibleInsignia,sprites.dungeon.stairWest,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerNorthWest,myTiles.tile8], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterEast0,sprites.dungeon.floorLight0,sprites.dungeon.collectibleInsignia,sprites.dungeon.stairWest,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerNorthWest,myTiles.tile8], TileScale.Sixteen);
         }
         return null;
     })
