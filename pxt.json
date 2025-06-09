@@ -4,7 +4,8 @@
     "dependencies": {
         "device": "*",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
-        "browser-events": "*"
+        "browser-events": "*",
+        "animation": "*"
     },
     "files": [
         "main.blocks",
