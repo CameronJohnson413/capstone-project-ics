@@ -1,19 +1,287 @@
 namespace SpriteKind {
     export const item = SpriteKind.create()
+    export const item2 = SpriteKind.create()
+    export const item3 = SpriteKind.create()
 }
+/**
+ */
+function itemchecktwo () {
+    if (randomvalue2 == 0) {
+        game.splash("A Nice Hardy Apple (Can take one more hit before barrier break)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 62)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            mySprite.startEffect(effects.halo)
+            barrieramount += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 1) {
+        game.splash("A Quite Sour Looking Lemon", "(Increase of Damage)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 62)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            spritedamage += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 2) {
+        game.splash("Two Very Ripe Cherries", "(Gain Bomb Ability) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            bomb += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 3) {
+        game.splash("A Juicy Looking Strawberry", "(Increase of Attack Speed) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            spriteattackspeed += -25
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 4) {
+        game.splash("A Massive Hamburger", "(Increase of Health) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            spritehp += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 5) {
+        game.splash("A Nice and Spicy Taco", "(Gain Fire Attacks) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            fireattack += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 6) {
+        game.splash("Cold Ice Cream, You Could jump for joy", "(Increase Up and Down Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            spritespeedy += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 7) {
+        game.splash("An Donut Iced with Pink Frosting", "(Increase Left and Right Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            spritespeedx += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue2 == 8) {
+        game.splash("A piece of Pizza", "" + amountpizza + "/8")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite3, effects.confetti, 1000)
+            amountpizza += 1
+            money += -3
+            buy = 0
+        }
+    }
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.item3, function (sprite, otherSprite) {
+    itemcheckthree()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.item, function (sprite, otherSprite) {
     itemcheckone()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level2`)
 })
 function itemspawing () {
     randomvalue = randint(0, 8)
     randomvalue2 = randint(0, 8)
     randomvalue3 = randint(0, 8)
     mySprite2 = sprites.create(itemlist[randomvalue], SpriteKind.item)
-    mySprite3 = sprites.create(itemlist[randomvalue2], SpriteKind.item)
-    mySprite4 = sprites.create(itemlist[randomvalue3], SpriteKind.item)
+    mySprite3 = sprites.create(itemlist[randomvalue2], SpriteKind.item2)
+    mySprite4 = sprites.create(itemlist[randomvalue3], SpriteKind.item3)
     tiles.placeOnTile(mySprite2, tiles.getTileLocation(2, 2))
     tiles.placeOnTile(mySprite3, tiles.getTileLocation(4, 2))
     tiles.placeOnTile(mySprite4, tiles.getTileLocation(6, 2))
+}
+function itemcheckthree () {
+    if (randomvalue3 == 0) {
+        game.splash("A Nice Hardy Apple (Can take one more hit before barrier break)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 62)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            mySprite.startEffect(effects.halo)
+            barrieramount += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 1) {
+        game.splash("A Quite Sour Looking Lemon", "(Increase of Damage)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 62)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            spritedamage += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 2) {
+        game.splash("Two Very Ripe Cherries", "(Gain Bomb Ability) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            bomb += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 3) {
+        game.splash("A Juicy Looking Strawberry", "(Increase of Attack Speed) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            spriteattackspeed += -25
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 4) {
+        game.splash("A Massive Hamburger", "(Increase of Health) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            spritehp += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 5) {
+        game.splash("A Nice and Spicy Taco", "(Gain Fire Attacks) ")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            fireattack += 1
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 6) {
+        game.splash("Cold Ice Cream, You Could jump for joy", "(Increase Up and Down Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            spritespeedy += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 7) {
+        game.splash("An Donut Iced with Pink Frosting", "(Increase Left and Right Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            spritespeedx += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue3 == 8) {
+        game.splash("A piece of Pizza", "" + amountpizza + "/8")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite4, effects.confetti, 1000)
+            amountpizza += 1
+            money += -3
+            buy = 0
+        }
+    }
 }
 function player2 () {
     for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
@@ -37,10 +305,13 @@ function player2 () {
             `, SpriteKind.Player)
         controller.moveSprite(mySprite, spritespeedx, spritespeedy)
         scene.cameraFollowSprite(mySprite)
-        tiles.setTileAt(value, sprites.dungeon.stairWest)
+        tiles.setTileAt(value, sprites.dungeon.floorLight0)
         tiles.placeOnTile(mySprite, value)
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.item2, function (sprite, otherSprite) {
+    itemchecktwo()
+})
 function itemcheckone () {
     if (randomvalue == 0) {
         game.splash("A Nice Hardy Apple (Can take one more hit before barrier break)")
@@ -127,17 +398,65 @@ function itemcheckone () {
             buy = 0
         }
     }
+    if (randomvalue == 6) {
+        game.splash("Cold Ice Cream, You Could jump for joy", "(Increase Up and Down Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite2, effects.confetti, 1000)
+            spritespeedy += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue == 7) {
+        game.splash("An Donut Iced with Pink Frosting", "(Increase Left and Right Movement Speed)")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite2, effects.confetti, 1000)
+            spritespeedx += 10
+            money += -3
+            buy = 0
+        }
+    }
+    if (randomvalue == 8) {
+        game.splash("A piece of Pizza", "" + amountpizza + "/8")
+        buy = game.askForNumber("", 1)
+        if (buy == 0) {
+            mySprite.setPosition(mySprite2.x, 62)
+        }
+        if (buy == 1) {
+            mySprite.setPosition(mySprite2.x, 65)
+            sprites.destroy(mySprite2, effects.confetti, 1000)
+            amountpizza += 1
+            money += -3
+            buy = 0
+        }
+    }
 }
-let money = 0
-let buy = 0
-let mySprite: Sprite = null
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    info.changeScoreBy(1)
+    game.splash("Progress Saved", "(Not Really ;)")
+    tiles.setTileAt(location, sprites.dungeon.floorLight0)
+})
 let mySprite4: Sprite = null
+let randomvalue3 = 0
+let randomvalue = 0
+let money = 0
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
-let randomvalue3 = 0
+let mySprite: Sprite = null
+let buy = 0
 let randomvalue2 = 0
-let randomvalue = 0
 let itemlist: Image[] = []
+let amountpizza = 0
 let spritespeedy = 0
 let spritespeedx = 0
 game.splash("1 to buy", "0 to go back")
@@ -149,6 +468,7 @@ let spritehp = 100
 let bomb = 0
 let fireattack = 0
 let spriteattackspeed = 500
+amountpizza = 0
 tiles.setCurrentTilemap(tilemap`waitingroom`)
 itemlist = [
 img`
