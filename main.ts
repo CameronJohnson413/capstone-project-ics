@@ -2,14 +2,15 @@ enum ActionKind {
     Walking,
     Idle,
     Jumping,
-    mainspritewalkingleft,
-    mainspritewalkingright
+    mainspritewalkingright,
+    mainspritewalkingleft
 }
 namespace SpriteKind {
+    export const attackone = SpriteKind.create()
     export const item = SpriteKind.create()
     export const item2 = SpriteKind.create()
     export const item3 = SpriteKind.create()
-    export const attackone = SpriteKind.create()
+    export const Boss = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.attackone, function (sprite, otherSprite) {
     if (barrieramount >= 1) {
@@ -66,7 +67,7 @@ function itemchecktwo () {
         if (buy == 1) {
             if (money >= 3) {
                 mysprite.setPosition(mySprite2.x, 62)
-                sprites.destroy(mySprite4, effects.confetti, 1000)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
                 bomb += 1
                 money += -3
                 buy = 0
@@ -191,6 +192,9 @@ function itemchecktwo () {
         }
     }
 }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Boss, function (sprite, otherSprite) {
+	
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.item3, function (sprite, otherSprite) {
     itemcheckthree()
 })
@@ -205,8 +209,10 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (spri
     sprites.destroyAllSpritesOfKind(SpriteKind.item)
     sprites.destroyAllSpritesOfKind(SpriteKind.item2)
     sprites.destroyAllSpritesOfKind(SpriteKind.item3)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
-    player22()
+    sprites.destroy(mysprite)
+    player2()
+    mainspritewalkingani2()
+    boss()
 })
 controller.right.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mysprite)
@@ -250,6 +256,28 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
         . . . . f f f f f f f f f . . . 
         `)
 })
+function boss () {
+    bosssprite = sprites.create(img`
+        . . . . c c c c c c . . . . . . 
+        . . . c 6 7 7 7 7 6 c . . . . . 
+        . . c 7 7 7 7 7 7 7 7 c . . . . 
+        . c 6 7 7 7 7 7 7 7 7 6 c . . . 
+        . c 7 c 6 6 6 6 c 7 7 7 c . . . 
+        . f 7 6 f 6 6 f 6 7 7 7 f . . . 
+        . f 7 7 7 7 7 7 7 7 7 7 f . . . 
+        . . f 7 7 7 7 6 c 7 7 6 f c . . 
+        . . . f c c c c 7 7 6 f 7 7 c . 
+        . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+        . c 7 7 2 7 7 c f c 6 7 7 6 c c 
+        c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+        f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+        f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+        . f 6 1 1 1 1 1 1 6 6 6 f . . . 
+        . . c c c c c c c c c f . . . . 
+        `, SpriteKind.Boss)
+    statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+    statusbar.attachToSprite(bosssprite)
+}
 function itemspawing () {
     randomvalue = randint(0, 8)
     randomvalue2 = randint(0, 8)
@@ -587,34 +615,95 @@ function itemcheckthree () {
         }
     }
 }
-function player22 () {
-    for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
-        mysprite = sprites.create(img`
-            . . . . . . . f f f f f . . . . 
-            . . . . . . f e e e e e f . . . 
-            . . . . . f e e e d d d d f . . 
-            . . . . f f e e d f d d f d c . 
-            . . . f d d e e d f d d f d c . 
-            . . . c d b e e d d d d e e d c 
-            f f . c d b e e d d c d d d d c 
-            f e f . c f e e d d d c c c c c 
-            f e f . . f f e e d d d d d f . 
-            f e f . f e e e e f f f f f . . 
-            f e f f e e e e e e e f . . . . 
-            . f f e e e e f e f f e f . . . 
-            . . f e e e e f e f f e f . . . 
-            . . . f e f f b d f b d f . . . 
-            . . . f d b b d d c d d f . . . 
-            . . . f f f f f f f f f . . . . 
-            `, SpriteKind.Player)
-        controller.moveSprite(mysprite, spritespeedx, spritespeedy)
-        scene.cameraFollowSprite(mysprite)
-        tiles.setTileAt(value, sprites.dungeon.stairWest)
-        tiles.placeOnTile(mysprite, value)
-    }
-}
 browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
-	
+    if (controller.right.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, mysprite, spritespeedx - 10, 0)
+        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
+        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+    }
+    if (controller.left.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, mysprite, spritespeedx * -1 - 10, 0)
+        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
+        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+    }
+    if (controller.up.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, mysprite, 0, spritespeedy - 10)
+        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
+        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+    }
+    if (controller.down.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, mysprite, 0, spritespeedy * -1 - 10)
+        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
+        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+    }
 })
 function player2 () {
     for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
@@ -824,13 +913,16 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, func
     game.splash("Progress Saved", "(Not Really ;)")
     tiles.setTileAt(location, sprites.dungeon.floorLight0)
 })
+let projectile: Sprite = null
 let pizzaattackvelx = 0
 let pizzaattackvely = 0
 let mainspritewalkingleft: animation.Animation = null
 let mainspritewalkingright: animation.Animation = null
+let mySprite4: Sprite = null
 let randomvalue3 = 0
 let randomvalue = 0
-let mySprite4: Sprite = null
+let statusbar: StatusBarSprite = null
+let bosssprite: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mysprite: Sprite = null
