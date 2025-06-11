@@ -193,7 +193,9 @@ function itemchecktwo () {
     }
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Boss, function (sprite, otherSprite) {
-	
+    sprites.destroy(sprite)
+    bosshp += spritedamage * -1
+    statusbar.value += spritedamage * -1
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.item3, function (sprite, otherSprite) {
     itemcheckthree()
@@ -275,8 +277,9 @@ function boss () {
         . f 6 1 1 1 1 1 1 6 6 6 f . . . 
         . . c c c c c c c c c f . . . . 
         `, SpriteKind.Boss)
-    statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+    statusbar = statusbars.create(50, 4, StatusBarKind.Health)
     statusbar.attachToSprite(bosssprite)
+    statusbar.value = bosshp
 }
 function itemspawing () {
     randomvalue = randint(0, 8)
@@ -635,8 +638,10 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, mysprite, spritespeedx - 10, 0)
-        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
-        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+        projectile.setKind(SpriteKind.Projectile)
+        projectile.setFlag(SpriteFlag.AutoDestroy, false)
+        projectile.setFlag(SpriteFlag.DestroyOnWall, true)
+        pause(spriteattackspeed)
     }
     if (controller.left.isPressed()) {
         projectile = sprites.createProjectileFromSprite(img`
@@ -657,8 +662,10 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, mysprite, spritespeedx * -1 - 10, 0)
-        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
-        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+        projectile.setKind(SpriteKind.Projectile)
+        projectile.setFlag(SpriteFlag.AutoDestroy, false)
+        projectile.setFlag(SpriteFlag.DestroyOnWall, true)
+        pause(spriteattackspeed)
     }
     if (controller.up.isPressed()) {
         projectile = sprites.createProjectileFromSprite(img`
@@ -679,8 +686,10 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, mysprite, 0, spritespeedy - 10)
-        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
-        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+        projectile.setKind(SpriteKind.Projectile)
+        projectile.setFlag(SpriteFlag.AutoDestroy, false)
+        projectile.setFlag(SpriteFlag.DestroyOnWall, true)
+        pause(spriteattackspeed)
     }
     if (controller.down.isPressed()) {
         projectile = sprites.createProjectileFromSprite(img`
@@ -701,8 +710,10 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, mysprite, 0, spritespeedy * -1 - 10)
-        mysprite.setFlag(SpriteFlag.AutoDestroy, false)
-        mysprite.setFlag(SpriteFlag.DestroyOnWall, true)
+        projectile.setKind(SpriteKind.Projectile)
+        projectile.setFlag(SpriteFlag.AutoDestroy, false)
+        projectile.setFlag(SpriteFlag.DestroyOnWall, true)
+        pause(spriteattackspeed)
     }
 })
 function player2 () {
@@ -921,30 +932,34 @@ let mainspritewalkingright: animation.Animation = null
 let mySprite4: Sprite = null
 let randomvalue3 = 0
 let randomvalue = 0
-let statusbar: StatusBarSprite = null
 let bosssprite: Sprite = null
+let statusbar: StatusBarSprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mysprite: Sprite = null
 let buy = 0
 let randomvalue2 = 0
 let itemlist: Image[] = []
+let bosshp = 0
 let money = 0
 let amountpizza = 0
+let spriteattackspeed = 0
 let barrieramount = 0
 let spritespeedy = 0
 let spritespeedx = 0
+let spritedamage = 0
 game.splash("1 to buy", "0 to go back")
-let spritedamage = 1
+spritedamage = 3
 spritespeedx = 100
 spritespeedy = 100
 barrieramount = 1
 let spritehp = 100
 let bomb = 0
 let fireattack = 0
-let spriteattackspeed = 250
+spriteattackspeed = 400
 amountpizza = 0
-money = 10000
+money = 10
+bosshp = 250
 tiles.setCurrentTilemap(tilemap`waitingroom`)
 itemlist = [
 img`
