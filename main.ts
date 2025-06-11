@@ -18,12 +18,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            mySprite.startEffect(effects.halo)
-            barrieramount += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                barrieramount += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 1) {
@@ -33,11 +38,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            spritedamage += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritedamage += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 2) {
@@ -47,11 +58,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            bomb += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                bomb += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 3) {
@@ -61,11 +78,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            spriteattackspeed += -25
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spriteattackspeed += -25
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 4) {
@@ -75,11 +98,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            spritehp += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritehp += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 5) {
@@ -89,11 +118,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            fireattack += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                fireattack += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 6) {
@@ -103,11 +138,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            spritespeedy += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvely += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 7) {
@@ -117,11 +158,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            spritespeedx += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvelx += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue2 == 8) {
@@ -131,11 +178,17 @@ function itemchecktwo () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite3, effects.confetti, 1000)
-            amountpizza += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite3, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                amountpizza += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
 }
@@ -368,12 +421,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            mySprite.startEffect(effects.halo)
-            barrieramount += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                barrieramount += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 1) {
@@ -383,11 +441,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            spritedamage += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritedamage += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 2) {
@@ -397,11 +461,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            bomb += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                bomb += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 3) {
@@ -411,11 +481,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            spriteattackspeed += -25
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spriteattackspeed += -25
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 4) {
@@ -425,11 +501,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            spritehp += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritehp += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 5) {
@@ -439,11 +521,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            fireattack += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                fireattack += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 6) {
@@ -453,11 +541,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            spritespeedy += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvely += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 7) {
@@ -467,11 +561,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            spritespeedx += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvelx += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue3 == 8) {
@@ -481,11 +581,17 @@ function itemcheckthree () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite4, effects.confetti, 1000)
-            amountpizza += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite4, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                amountpizza += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
 }
@@ -526,12 +632,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            mySprite.startEffect(effects.halo)
-            barrieramount += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                barrieramount += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 1) {
@@ -541,11 +652,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 62)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            spritedamage += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritedamage += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 2) {
@@ -555,11 +672,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            bomb += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                bomb += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 3) {
@@ -569,11 +692,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            spriteattackspeed += -25
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spriteattackspeed += -25
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 4) {
@@ -583,11 +712,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            spritehp += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                spritehp += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 5) {
@@ -597,11 +732,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            fireattack += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                fireattack += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 6) {
@@ -611,11 +752,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            spritespeedy += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvely += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 7) {
@@ -625,11 +772,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            spritespeedx += 10
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                pizzaattackvelx += 10
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
     if (randomvalue == 8) {
@@ -639,11 +792,17 @@ function itemcheckone () {
             mySprite.setPosition(mySprite2.x, 62)
         }
         if (buy == 1) {
-            mySprite.setPosition(mySprite2.x, 65)
-            sprites.destroy(mySprite2, effects.confetti, 1000)
-            amountpizza += 1
-            money += -3
-            buy = 0
+            if (money >= 3) {
+                mySprite.setPosition(mySprite2.x, 62)
+                sprites.destroy(mySprite2, effects.confetti, 1000)
+                mySprite.startEffect(effects.halo)
+                amountpizza += 1
+                money += -3
+                buy = 0
+            } else {
+                game.splash("Not Enough Money Available")
+                mySprite.setPosition(mySprite2.x, 62)
+            }
         }
     }
 }
@@ -654,29 +813,32 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, func
 })
 let mainspritewalkingleft: animation.Animation = null
 let mainspritewalkingright: animation.Animation = null
-let mySprite4: Sprite = null
 let randomvalue3 = 0
 let randomvalue = 0
-let money = 0
+let pizzaattackvelx = 0
+let pizzaattackvely = 0
+let mySprite4: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 let buy = 0
 let randomvalue2 = 0
 let itemlist: Image[] = []
+let money = 0
 let amountpizza = 0
 let spritespeedy = 0
 let spritespeedx = 0
 game.splash("1 to buy", "0 to go back")
 let spritedamage = 1
-spritespeedx = 500
-spritespeedy = 500
+spritespeedx = 100
+spritespeedy = 100
 let barrieramount = 1
 let spritehp = 100
 let bomb = 0
 let fireattack = 0
 let spriteattackspeed = 500
 amountpizza = 0
+money = 10000
 tiles.setCurrentTilemap(tilemap`waitingroom`)
 itemlist = [
 img`
